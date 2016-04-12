@@ -1,7 +1,8 @@
 package com.example.rahulgupta.getrooms;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,17 +18,13 @@ public class Home extends AppCompatActivity {
         ageid=(EditText)findViewById(R.id.ageid);
         welcomeid=(TextView)findViewById(R.id.welcomeid);
 
-        Bundle intent=getIntent().getExtras();
-        if (intent==null){
-            return;
-
-        }
-        String name=intent.getString("name");
-        int age=intent.getInt("age", 1);
-        String username=intent.getString("username");
+        Intent intent=getIntent();
+        String name=intent.getStringExtra("name");
+        int age=intent.getIntExtra("age",1);
+        String username=intent.getStringExtra("username");
 
 
-        final String message=name+" Welcome to your Homepage";
+        String message=name+" Welcome to your Homepage";
         welcomeid.setText(message);
         usernameid.setText(username);
         ageid.setText(age+"");
