@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Getrooms</string>
+    <string name="welcomeid">Welcome to GetRooms</string>
+    <string name="loginid">LogIn</string>
+    <string name="notamemberid">Not a member?</string>
+    <string name="signupid">SignUp</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender</string>
+    <string name="contactnumber">Contact Number</string>
+    <string name="category">Category</string>
+    <string name="dateofbirth">Date of birth</string>
+    <string name="setdate">Set Date</string>
+    <string name="submit">Submit</string>
+    <string name="password">Password</string>
+    <string name="Username">Username</string>
+    <string name="Age">Age</string>
+    <string name="welcome">Welcome to Home</string>
+    <string-array name="genderarray">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="categoryarray">
+        <item>Customer</item>
+        <item>Supplier</item>
+    </string-array>
+</resources>

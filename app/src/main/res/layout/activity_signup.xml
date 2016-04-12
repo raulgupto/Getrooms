@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.rahulgupta.getrooms.signup"
+    android:onClick="setDate">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:fillViewport="false">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:id="@+id/nameview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/name" />
+
+    <EditText
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nameid"
+        android:layout_below="@+id/nameview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Full Name"
+        android:scrollIndicators="top" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/email"
+        android:id="@+id/emailviewid"
+        android:layout_below="@+id/nameid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+            <EditText
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailid"
+        android:layout_below="@+id/emailviewid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Email" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/usernameid"
+                android:layout_below="@+id/emailid"
+                android:layout_alignParentLeft="true"
+                android:hint="@string/Username" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ageid"
+                android:layout_below="@+id/usernameid"
+                android:layout_alignParentLeft="true"
+                android:hint="@string/Age" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/password"
+                android:layout_below="@id/emailid"
+                android:id="@+id/passwordviewid" />
+
+
+            <EditText
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/passwordid"
+                android:layout_below="@id/passwordviewid"
+                android:hint="Password" />
+
+            <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/gender"
+        android:id="@+id/genderview"
+        android:layout_below="@+id/emailid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/genderspinnerid"
+        android:layout_below="@+id/genderview"
+        android:layout_alignParentRight="true"
+
+        android:layout_toRightOf="@+id/genderview"
+        android:spinnerMode="dropdown" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/contactnumber"
+        android:id="@+id/contactnumberviewid"
+        android:layout_below="@+id/genderspinnerid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/contactnumberid"
+                android:layout_below="@+id/contactnumberviewid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Contact number" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/category"
+                android:layout_below="@+id/contactnumberid"
+                android:id="@+id/categoryviewid"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/categoryviewid"
+                android:layout_alignParentRight="true"
+
+                android:layout_toRightOf="@+id/categoryviewid"
+                android:spinnerMode="dropdown"
+                android:id="@+id/categoryspinnerid" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/dateofbirth"
+                android:id="@+id/dateofbirthviewid"
+                android:layout_below="@+id/categoryspinnerid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setdate"
+                android:id="@+id/setdateid"
+                android:layout_alignBottom="@+id/scrollView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/dateofbirthviewid"
+                android:onClick="setDate" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:id="@+id/submitbuttonid"
+                android:layout_below="@+id/setdateid"
+                android:layout_gravity="center_horizontal"
+                android:onClick="OnReg"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>
