@@ -1,6 +1,7 @@
 package com.example.rahulgupta.getrooms;
 
 import android.app.AlertDialog;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -23,9 +25,10 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
 
 
-    EditText passwordid,nameid,emailid,contactnuberid,usernameid,ageid;
+    EditText passwordid,nameid,emailid,contactnumberid,usernameid,ageid;
+    EditText txtDate;
     Spinner genderspinnerid;
-    Button setdateid,submitbuttonid;
+    Button submitbuttonid;
     Spinner categoryspinnerid;
     ArrayAdapter gender,category;
     @Override
@@ -34,13 +37,11 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_signup);
 
         passwordid=(EditText)findViewById(R.id.passwordid);
-        contactnuberid=(EditText)findViewById(R.id.contactnumberid);
+        contactnumberid=(EditText)findViewById(R.id.contactnumberid);
         emailid=(EditText)findViewById(R.id.emailid);
         nameid=(EditText)findViewById(R.id.nameid);
         usernameid=(EditText)findViewById(R.id.usernameid);
         ageid=(EditText)findViewById(R.id.ageid);
-
-        setdateid=(Button)findViewById(R.id.setdateid);
 
         genderspinnerid=(Spinner)findViewById(R.id.genderspinnerid);
         gender= ArrayAdapter.createFromResource(this, R.array.genderarray, android.R.layout.simple_spinner_item);
@@ -51,6 +52,40 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         category.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categoryspinnerid.setAdapter(category);
 
+
+
+
+        genderspinnerid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //code here
+                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+
+        });
+        categoryspinnerid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //code here
+                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+            }
+
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+
+        });
+
+
+
         submitbuttonid=(Button)findViewById(R.id.submitbuttonid);
         submitbuttonid.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -58,8 +93,12 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                 final String name=nameid.getText().toString();
                 String password=passwordid.getText().toString();
                 String username=usernameid.getText().toString();
-                int age=Integer.parseInt(ageid.getText().toString());
-                String contactnumber=contactnuberid.getText().toString();
+
+                final String contactnumber=contactnumberid.getText().toString();
+                String gender=genderspinnerid.getSelectedItem().toString();
+                String category=categoryspinnerid.getSelectedItem().toString();
+                String dateofbirth=txtDate.getText().toString();
+
 
                 Response.Listener<String> responseListener=new Response.Listener<String>(){
 
@@ -86,46 +125,34 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                         }
                     }
                 };
-                RegisterRequest registerRequest=new RegisterRequest(name,username,age,password,contactnumber,responseListener);
+                RegisterRequest registerRequest=new RegisterRequest(name,username,password,contactnumber,gender,dateofbirth,responseListener);
                 RequestQueue queue= Volley.newRequestQueue(signup.this);
                 queue.add(registerRequest);
             }
         });
 
 
-        genderspinnerid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+    }
 
+
+    public void onStart(){
+        super.onStart();
+
+
+        txtDate = (EditText)findViewById(R.id.setdateid);
+        txtDate.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            public void onFocusChange(View view, boolean hasfocus){
+                if(hasfocus){
+                    DateDialog dialog=new DateDialog(view);
+                    FragmentTransaction ft =getFragmentManager().beginTransaction();
+                    dialog.show(ft, "DatePicker");
+
+                }
             }
 
         });
-        categoryspinnerid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
-            }
-
-
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-
-        });
-
     }
-    public void setDate(View view){
-        PickerDialogs pickerDialogs=new PickerDialogs();
-        pickerDialogs.show(getFragmentManager(),"Select Date");
-    }
-
 
 
     @Override

@@ -70,13 +70,7 @@
                 android:layout_below="@+id/emailid"
                 android:layout_alignParentLeft="true"
                 android:hint="@string/Username" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ageid"
-                android:layout_below="@+id/usernameid"
-                android:layout_alignParentLeft="true"
-                android:hint="@string/Age" />
+
 
 
 
@@ -170,16 +164,13 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/setdate"
-                android:id="@+id/setdateid"
-                android:layout_alignBottom="@+id/scrollView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/dateofbirthviewid"
-                android:onClick="setDate" />
+           <EditText
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/setdateid"
+               android:hint="Touch to set Date"
+
+               />
 
             <Button
                 android:layout_width="wrap_content"

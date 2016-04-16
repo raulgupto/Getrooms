@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
 
     EditText usernameid, passwordid;
@@ -65,11 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 intent.putExtra("name",name);
                                 intent.putExtra("username",username);
                                 intent.putExtra("age", age);
-                                //startActivity(intent);
-                                //Intent homeintent=new Intent(MainActivity.this,Home.class);
-                                startActivity(intent);
-
-
+                                MainActivity.this.startActivity(intent);
 
                             }
                             else{
@@ -100,17 +96,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    @Override
-    public void onClick(View v) {
 
-        switch (v.getId()) {
-            // case R.id.loginbutton:
-
-
-            // case R.id.signupbutton:
-            //startActivity(new Intent(this,signup.class));
-            // break;
-        }
-
-    }
 }
