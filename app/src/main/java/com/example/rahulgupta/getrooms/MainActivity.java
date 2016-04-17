@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText usernameid, passwordid;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         final Button signupbutton = (Button) findViewById(R.id.signupbutton);
         final EditText passwordid = (EditText) findViewById(R.id.passwordid);
         final EditText usernameid = (EditText) findViewById(R.id.usernameid);
+
+
+
+
 
         signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,12 +63,14 @@ public class MainActivity extends AppCompatActivity {
                             if (success){
 
                                 String name=jsonResponse.getString("name");
-                                int age=jsonResponse.getInt("age");
+                                String gender=jsonResponse.getString("gender");
+                                //int age=jsonResponse.getInt("age");
 
-                                Intent intent=new Intent(MainActivity.this,Home.class);
+                                Intent intent=new Intent(MainActivity.this,Home2.class);
                                 intent.putExtra("name",name);
                                 intent.putExtra("username",username);
-                                intent.putExtra("age", age);
+                               // intent.putExtra("age", age);
+                                intent.putExtra("gender",gender);
                                 MainActivity.this.startActivity(intent);
 
                             }
@@ -74,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                                         .setNegativeButton("Retry",null)
                                         .create()
                                         .show();
+
 
                             }
 

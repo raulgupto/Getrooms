@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -41,7 +40,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         emailid=(EditText)findViewById(R.id.emailid);
         nameid=(EditText)findViewById(R.id.nameid);
         usernameid=(EditText)findViewById(R.id.usernameid);
-        ageid=(EditText)findViewById(R.id.ageid);
+        //ageid=(EditText)findViewById(R.id.ageid);
 
         genderspinnerid=(Spinner)findViewById(R.id.genderspinnerid);
         gender= ArrayAdapter.createFromResource(this, R.array.genderarray, android.R.layout.simple_spinner_item);

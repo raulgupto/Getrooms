@@ -8,26 +8,28 @@ import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 
-    EditText usernameid,ageid;
+    EditText usernameid,genderid;
     TextView welcomeid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         usernameid=(EditText)findViewById(R.id.usernameid);
-        ageid=(EditText)findViewById(R.id.ageid);
+        genderid=(EditText)findViewById(R.id.genderid);
         welcomeid=(TextView)findViewById(R.id.welcomeid);
 
         Intent intent=getIntent();
         String name=intent.getStringExtra("name");
-        int age=intent.getIntExtra("age",1);
+        String gender=intent.getStringExtra("gender");
+        ///int age=intent.getIntExtra("age",1);
         String username=intent.getStringExtra("username");
 
 
         String message=name+" Welcome to your Homepage";
         welcomeid.setText(message);
         usernameid.setText(username);
-        ageid.setText(age+"");
+        genderid.setText(gender);
+        //ageid.setText(age+"");
 
     }
 }

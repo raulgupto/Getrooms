@@ -16,6 +16,8 @@
     <string name="Username">Username</string>
     <string name="Age">Age</string>
     <string name="welcome">Welcome to Home</string>
+    <string name="location">Location</string>
+    <string name="room_type">Room Type</string>
     <string-array name="genderarray">
         <item>Male</item>
         <item>Female</item>
@@ -24,4 +26,17 @@
         <item>Customer</item>
         <item>Supplier</item>
     </string-array>
+    <string-array name="roomtype">
+        <item>Paying_Guest</item>
+        <item>Flat</item>
+        <item>Room</item>
+    </string-array>
+    <string name="title_activity_home2">Home2</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
 </resources>

@@ -28,7 +28,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="@string/name" />
+        android:text="@string/name"
+        android:typeface="monospace" />
 
     <EditText
         android:layout_width="360dp"
@@ -39,11 +40,21 @@
         android:layout_below="@+id/nameview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+
         android:hint="Full Name"
         android:scrollIndicators="top" />
 
 
-    <TextView
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/usernameid"
+                android:layout_below="@+id/nameid"
+                android:layout_alignParentLeft="true"
+                android:hint="@string/Username"
+                android:typeface="monospace" />
+
+            <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -51,7 +62,8 @@
         android:id="@+id/emailviewid"
         android:layout_below="@+id/nameid"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:typeface="monospace" />
 
             <EditText
         android:layout_width="360dp"
@@ -63,15 +75,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:hint="Email" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/usernameid"
-                android:layout_below="@+id/emailid"
-                android:layout_alignParentLeft="true"
-                android:hint="@string/Username" />
-
-
 
 
             <TextView
@@ -80,7 +83,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/password"
                 android:layout_below="@id/emailid"
-                android:id="@+id/passwordviewid" />
+                android:id="@+id/passwordviewid"
+                android:typeface="monospace" />
 
 
             <EditText
@@ -90,7 +94,8 @@
                 android:ems="10"
                 android:id="@+id/passwordid"
                 android:layout_below="@id/passwordviewid"
-                android:hint="Password" />
+                android:hint="Password"
+                android:typeface="monospace" />
 
             <TextView
         android:layout_width="wrap_content"
@@ -100,7 +105,8 @@
         android:id="@+id/genderview"
         android:layout_below="@+id/emailid"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:typeface="monospace" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -121,7 +127,8 @@
         android:id="@+id/contactnumberviewid"
         android:layout_below="@+id/genderspinnerid"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:typeface="monospace" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,7 +138,8 @@
                 android:layout_below="@+id/contactnumberviewid"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:hint="Contact number" />
+                android:hint="Contact number"
+                android:typeface="monospace" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -142,13 +150,12 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                />
+                android:typeface="monospace" />
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/categoryviewid"
                 android:layout_alignParentRight="true"
-
                 android:layout_toRightOf="@+id/categoryviewid"
                 android:spinnerMode="dropdown"
                 android:id="@+id/categoryspinnerid" />
@@ -169,6 +176,7 @@
                android:layout_height="wrap_content"
                android:id="@+id/setdateid"
                android:hint="Touch to set Date"
+               android:typeface="monospace"
 
                />
 
@@ -179,7 +187,8 @@
                 android:id="@+id/submitbuttonid"
                 android:layout_below="@+id/setdateid"
                 android:layout_gravity="center_horizontal"
-                android:onClick="OnReg"/>
+                android:onClick="OnReg"
+                android:typeface="serif" />
 
 
         </LinearLayout>
