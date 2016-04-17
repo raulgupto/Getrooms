@@ -22,6 +22,14 @@
         <activity
             android:name=".Home2"
             android:label="@string/title_activity_home2"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".searchrooms"
+            android:label="@string/title_activity_searchrooms"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".postpg"
+            android:label="@string/title_activity_postpg"
             android:theme="@style/AppTheme"></activity>
     </application>
 

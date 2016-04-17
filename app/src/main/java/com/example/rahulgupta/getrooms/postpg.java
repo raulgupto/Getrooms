@@ -1,11 +1,9 @@
 package com.example.rahulgupta.getrooms;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,51 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
-public class Home2 extends AppCompatActivity
+public class postpg extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    TextView usernameid,genderid;
-    TextView welcomeid,contactnumberid,dateofbirthid;
-    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home2);
-
-        usernameid=(TextView) findViewById(R.id.usernameid);
-        genderid=(TextView) findViewById(R.id.genderid);
-        welcomeid=(TextView)findViewById(R.id.welcomeid);
-        contactnumberid=(TextView)findViewById(R.id.contactnumberid);
-        dateofbirthid=(TextView)findViewById(R.id.dateofbirthid);
-
-
-        Intent intent=getIntent();
-        String name=intent.getStringExtra("name");
-        String username=intent.getStringExtra("username");
-        String gender=intent.getStringExtra("gender");
-        String contactnumber=intent.getStringExtra("contactnumber");
-        String dateofbirth=intent.getStringExtra("dateofbirth");
-        ///int age=intent.getIntExtra("age",1);
-
-
-
-
-        String message=name+" Welcome to your Homepage";
-        welcomeid.setText(message);
-        usernameid.setText(username);
-        genderid.setText(gender);
-        contactnumberid.setText(contactnumber);
-        dateofbirthid.setText(dateofbirth);
-        //ageid.setText(age+"");
-
-//        fragmentTransaction=getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.add(R.id.maincontainer,new homefragment());
-//        fragmentTransaction.commit();
-       // getSupportActionBar().setTitle("Getrooms");
-
+        setContentView(R.layout.activity_postpg);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -66,7 +27,7 @@ public class Home2 extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Post Ad", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -94,7 +55,7 @@ public class Home2 extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home2, menu);
+        getMenuInflater().inflate(R.menu.postpg, menu);
         return true;
     }
 
@@ -120,8 +81,7 @@ public class Home2 extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.searchroomsid) {
-            Intent intent=new Intent(this,searchrooms.class);
-            startActivity(intent);
+
             // Handle the camera action
         } else if (id == R.id.settingsid) {
 
@@ -137,8 +97,4 @@ public class Home2 extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-
 }

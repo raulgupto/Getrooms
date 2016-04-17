@@ -23,18 +23,24 @@
         android:layout_alignParentEnd="true"
         android:hint="@string/welcome"
         android:typeface="monospace" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loggedinview"
+        android:layout_below="@+id/welcomeid"
+        android:text="You&apos;re logged in as" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/usernameid"
-        android:layout_below="@+id/welcomeid"
+        android:layout_below="@+id/loggedinview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:typeface="monospace"
         android:hint="username" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/genderid"
@@ -43,5 +49,23 @@
         android:layout_alignParentStart="true"
         android:typeface="monospace"
         android:hint="Gender" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactnumberid"
+        android:layout_below="@+id/genderid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Contact Number" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dateofbirthid"
+        android:layout_below="@+id/contactnumberid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="DOB " />
+
 
 </RelativeLayout>
