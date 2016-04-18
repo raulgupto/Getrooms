@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                                 String gender=jsonResponse.getString("gender");
                                 String contactnumber=jsonResponse.getString("contactnumber");
                                 String dateofbirth=jsonResponse.getString("dateofbirth");
+                                String email=jsonResponse.getString("email");
                                 //int age=jsonResponse.getInt("age");
 
                                 Intent intent=new Intent(MainActivity.this,Home2.class);
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("gender",gender);
                                 intent.putExtra("contactnumber",contactnumber);
                                 intent.putExtra("dateofbirth",dateofbirth);
+                                intent.putExtra("email",email);
                                 MainActivity.this.startActivity(intent);
 
                             }

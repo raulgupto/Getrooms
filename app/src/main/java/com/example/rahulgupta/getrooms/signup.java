@@ -24,7 +24,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
 
 
-    EditText passwordid,nameid,emailid,contactnumberid,usernameid,ageid;
+    EditText passwordid,nameid,emailid,contactnumberid,usernameid;
     EditText txtDate;
     Spinner genderspinnerid;
     Button submitbuttonid;
@@ -58,7 +58,11 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //code here
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+//                if (gender.equals("SELECT GENDER")) {
+//
+//                } else {
+//                    Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+//                }
             }
 
             @Override
@@ -71,7 +75,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //code here
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
             }
 
 
@@ -86,47 +90,60 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
 
         submitbuttonid=(Button)findViewById(R.id.submitbuttonid);
+
         submitbuttonid.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                final String name=nameid.getText().toString();
-                String password=passwordid.getText().toString();
-                String username=usernameid.getText().toString();
-
-                final String contactnumber=contactnumberid.getText().toString();
-                String gender=genderspinnerid.getSelectedItem().toString();
-                String category=categoryspinnerid.getSelectedItem().toString();
-                String dateofbirth=txtDate.getText().toString();
 
 
-                Response.Listener<String> responseListener=new Response.Listener<String>(){
+                final String name = nameid.getText().toString();
+                String password = passwordid.getText().toString();
+                String username = usernameid.getText().toString();
+                final String email=emailid.getText().toString();
+                final String contactnumber = contactnumberid.getText().toString();
+                String gender = genderspinnerid.getSelectedItem().toString();
+                String category = categoryspinnerid.getSelectedItem().toString();
+                String dateofbirth = txtDate.getText().toString();
 
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse=new JSONObject(response);
-                            boolean success=jsonResponse.getBoolean("success");
-                            if (success){
-                                Intent intent=new Intent(signup.this,MainActivity.class);
-                                startActivity(intent);
+                if (name.equals("")||password.equals("")||gender.equals("")||dateofbirth.equals("")||username.equals("")||email.equals("")) {
+
+                    Toast.makeText(getApplicationContext(), "field cannot be empty", Toast.LENGTH_SHORT).show();
+
+                }
+                else if(gender.equals("SELECT GENDER"))
+                {
+                    Toast.makeText(getApplicationContext(), "Select gender", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+                                boolean success = jsonResponse.getBoolean("success");
+                                if (success) {
+                                    Intent intent = new Intent(signup.this, MainActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(signup.this);
+                                    builder.setMessage("Register Failed")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                            else{
-                                AlertDialog.Builder builder= new AlertDialog.Builder(signup.this);
-                                builder.setMessage("Register Failed")
-                                        .setNegativeButton("Retry",null)
-                                        .create()
-                                        .show();
-                            }
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                };
-                RegisterRequest registerRequest=new RegisterRequest(name,username,password,contactnumber,gender,dateofbirth,responseListener);
-                RequestQueue queue= Volley.newRequestQueue(signup.this);
-                queue.add(registerRequest);
+                    };
+                    RegisterRequest registerRequest = new RegisterRequest(name, username, password, contactnumber, gender, dateofbirth,email, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(signup.this);
+                    queue.add(registerRequest);
+                }
             }
         });
 

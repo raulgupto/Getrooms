@@ -248,6 +248,10 @@ public class searchrooms extends AppCompatActivity
         } else if (id == R.id.settingsid) {
 
         } else if (id == R.id.logout) {
+            Intent myIntent = new Intent(searchrooms.this, MainActivity.class);
+            myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);// clear back stack
+            startActivity(myIntent);
+            finish();
 
         } else if (id == R.id.nav_share) {
 

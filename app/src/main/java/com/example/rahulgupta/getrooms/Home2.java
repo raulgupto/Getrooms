@@ -20,7 +20,7 @@ public class Home2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView usernameid,genderid;
-    TextView welcomeid,contactnumberid,dateofbirthid;
+    TextView welcomeid,contactnumberid,dateofbirthid,emailid;
     FragmentTransaction fragmentTransaction;
 
     @Override
@@ -33,6 +33,7 @@ public class Home2 extends AppCompatActivity
         welcomeid=(TextView)findViewById(R.id.welcomeid);
         contactnumberid=(TextView)findViewById(R.id.contactnumberid);
         dateofbirthid=(TextView)findViewById(R.id.dateofbirthid);
+        emailid=(TextView)findViewById(R.id.emailid);
 
 
         Intent intent=getIntent();
@@ -41,6 +42,7 @@ public class Home2 extends AppCompatActivity
         String gender=intent.getStringExtra("gender");
         String contactnumber=intent.getStringExtra("contactnumber");
         String dateofbirth=intent.getStringExtra("dateofbirth");
+        String email=intent.getStringExtra("email");
         ///int age=intent.getIntExtra("age",1);
 
 
@@ -53,12 +55,8 @@ public class Home2 extends AppCompatActivity
         genderid.setText(gender);
         contactnumberid.setText(contactnumber);
         dateofbirthid.setText(dateofbirth);
-        //ageid.setText(age+"");
+        emailid.setText(email);
 
-//        fragmentTransaction=getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.add(R.id.maincontainer,new homefragment());
-//        fragmentTransaction.commit();
-       // getSupportActionBar().setTitle("Getrooms");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -130,6 +128,10 @@ public class Home2 extends AppCompatActivity
         } else if (id == R.id.settingsid) {
 
         } else if (id == R.id.logout) {
+            Intent myIntent = new Intent(Home2.this, MainActivity.class);
+            myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);// clear back stack
+            startActivity(myIntent);
+            finish();
 
         } else if (id == R.id.nav_share) {
 

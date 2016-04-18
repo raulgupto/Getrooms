@@ -10,7 +10,7 @@
     tools:context="com.example.rahulgupta.getrooms.Home">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/welcomeid"
@@ -22,8 +22,8 @@
         android:hint="@string/welcome"
         android:typeface="monospace" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/usernameid"
         android:layout_below="@+id/welcomeid"
@@ -31,12 +31,38 @@
         android:layout_alignParentStart="true"
         android:typeface="monospace" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/genderid"
         android:layout_below="@+id/usernameid"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:typeface="monospace" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sharedid"
+        android:layout_below="@+id/genderid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:typeface="monospace" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/messid"
+        android:layout_below="@+id/sharedid"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:typeface="monospace" />
+    <fragment
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:name="com.example.rahulgupta.getrooms.check"
+        android:id="@+id/fragment"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="138dp"
+        tools:layout="@layout/check_frag" />
 </RelativeLayout>
