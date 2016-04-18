@@ -12,4 +12,135 @@
     tools:context="com.example.rahulgupta.getrooms.postpg"
     tools:showIn="@layout/app_bar_postpg">
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/room_type"
+                android:id="@+id/roomtypeviewid"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:typeface="monospace" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/roomtypeid"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/roomtypeviewid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:touchscreenBlocksFocus="false"
+                android:transitionGroup="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/location"
+                android:id="@+id/locationviewid"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:typeface="monospace" />
+
+            <EditText
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/locationid"
+                android:layout_alignTop="@+id/scrollView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Near Location"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/priceviewid"
+                android:layout_below="@id/locationid"
+                android:text="Price Range"/>
+            <EditText
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/priceid"
+                android:layout_below="@+id/priceviewid"
+                android:hint="Enter single desired Price"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/laundryviewid"
+                android:layout_below="@id/locationid"
+                android:text="Laundry"/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/laundryid"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/priceid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:transitionGroup="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/messviewid"
+                android:layout_below="@id/laundryid"
+                android:text="Mess"
+                android:typeface="monospace" />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/messid"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/messviewid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:transitionGroup="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sharedviewid"
+                android:layout_below="@+id/messid"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Shared"
+                android:typeface="monospace"/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sharedid"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/sharedviewid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:transitionGroup="false" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/postid"
+                android:text="Post Ad"
+                android:layout_below="@id/sharedid"
+
+                />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>

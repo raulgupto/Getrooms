@@ -112,10 +112,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/genderspinnerid"
+        android:layout_toRightOf="@+id/genderview"
         android:layout_below="@+id/genderview"
         android:layout_alignParentRight="true"
-
-        android:layout_toRightOf="@+id/genderview"
         android:spinnerMode="dropdown" />
 
 

@@ -49,6 +49,7 @@ public class Home2 extends AppCompatActivity
         String message=name+" Welcome to your Homepage";
         welcomeid.setText(message);
         usernameid.setText(username);
+
         genderid.setText(gender);
         contactnumberid.setText(contactnumber);
         dateofbirthid.setText(dateofbirth);
@@ -66,8 +67,11 @@ public class Home2 extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Post Ad", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Post Ad of pg/flat", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent intent=new Intent(Home2.this,postpg.class);
+                startActivity(intent);
+
             }
         });
 
@@ -76,7 +80,7 @@ public class Home2 extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        this.setTitle("Home");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }

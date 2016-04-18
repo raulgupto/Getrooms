@@ -29,8 +29,24 @@
     <string-array name="roomtype">
         <item>Paying_Guest</item>
         <item>Flat</item>
-        <item>Room</item>
     </string-array>
+
+    <string-array name="shared">
+        <item>Single</item>
+        <item>Double</item>
+        <item>Triple</item>
+    </string-array>
+
+    <string-array name="laundry">
+        <item>yes</item>
+        <item>no</item>
+    </string-array>
+
+    <string-array name="mess">
+        <item>yes</item>
+        <item>no</item>
+    </string-array>
+
     <string name="title_activity_home2">Home2</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

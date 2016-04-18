@@ -19,16 +19,18 @@ public class Home extends AppCompatActivity {
         welcomeid=(TextView)findViewById(R.id.welcomeid);
 
         Intent intent=getIntent();
-        String name=intent.getStringExtra("name");
-        String gender=intent.getStringExtra("gender");
+        String price=intent.getStringExtra("price");
+        String shared=intent.getStringExtra("shared");
+        String location=intent.getStringExtra("location");
+        String laundry=intent.getStringExtra("laundry");
+        String mess=intent.getStringExtra("mess");
         ///int age=intent.getIntExtra("age",1);
-        String username=intent.getStringExtra("username");
 
 
-        String message=name+" Welcome to your Homepage";
+        String message="Rooms Found with Details ";
         welcomeid.setText(message);
-        usernameid.setText(username);
-        genderid.setText(gender);
+        usernameid.setText(price);
+        genderid.setText(location);
         //ageid.setText(age+"");
 
     }
