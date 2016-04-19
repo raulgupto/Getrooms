@@ -19,7 +19,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -54,7 +53,7 @@ public class postpg extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //onSelect spinner
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -72,7 +71,7 @@ public class postpg extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //onSelect spinner
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -90,7 +89,7 @@ public class postpg extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //onSelect spinner
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -108,7 +107,7 @@ public class postpg extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //onSelect spinner
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -128,7 +127,6 @@ public class postpg extends AppCompatActivity
                 String mess=messid.getSelectedItem().toString();
 
 
-
             Response.Listener<String> responseListener=new Response.Listener<String>(){
 
                 @Override
@@ -137,7 +135,9 @@ public class postpg extends AppCompatActivity
                         JSONObject jsonResponse=new JSONObject(response);
                         boolean success=jsonResponse.getBoolean("success");
                         if (success){
-                            Intent intent=new Intent(postpg.this,Home.class);
+                            String post="Post Sucessful! Wanna Search Rooms!";
+                            Intent intent=new Intent(postpg.this,searchrooms.class);
+                            intent.putExtra("post",post);
                             startActivity(intent);
                         }
                         else{

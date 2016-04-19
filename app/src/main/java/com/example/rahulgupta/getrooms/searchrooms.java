@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -35,6 +36,7 @@ public class searchrooms extends AppCompatActivity
     ArrayAdapter roomtype,mess,laundry,shared;
     EditText locationid,priceid;
     Button searchid;
+    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,14 @@ public class searchrooms extends AppCompatActivity
         setContentView(R.layout.activity_searchrooms);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        text=(TextView)findViewById(R.id.text);
+
+        Intent intent=getIntent();
+        String post=intent.getStringExtra("post");
+        text.setText(post);
+
+
         priceid = (EditText) findViewById(R.id.priceid);
         locationid = (EditText) findViewById(R.id.locationid);
         roomtypeid = (Spinner) findViewById(R.id.roomtypeid);

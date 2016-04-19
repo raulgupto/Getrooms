@@ -20,6 +20,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class signup extends AppCompatActivity implements View.OnClickListener{
 
 
@@ -114,6 +117,13 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                 {
                     Toast.makeText(getApplicationContext(), "Select gender", Toast.LENGTH_SHORT).show();
                 }
+                else if(!isEmailValid(email)){
+
+                    Toast.makeText(getApplicationContext(), "Enter Valid email ", Toast.LENGTH_SHORT).show();
+                }
+                else if (!isPasswordValid(password)){
+                    Toast.makeText(getApplicationContext(), "Password format 8char-long-A-a-@!$ ", Toast.LENGTH_SHORT).show();
+                }
                 else {
 
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -177,4 +187,25 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
 
     }
 
+    public boolean isEmailValid(String email)
+    {
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        final Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public boolean isPasswordValid(String password)
+    {
+        //8-char,Uppercase,Lowercase,Special char
+        //"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}"
+        //8-char ,alpha
+        //"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+        final String PASSWORD_PATTERN =
+                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$";
+        final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        final Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
 }
