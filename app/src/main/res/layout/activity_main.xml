@@ -10,81 +10,111 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.rahulgupta.getrooms.MainActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher"
-        android:id="@+id/imageView"
-        android:scaleType="fitCenter"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcomeid"
-        android:id="@+id/welcometext"
-        android:layout_marginTop="5dp"
-        android:typeface="monospace"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/usernameid"
-        android:layout_below="@+id/welcometext"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Username"
-        android:typeface="monospace" />
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:fillViewport="false">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordid"
-        android:layout_below="@+id/usernameid"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Password"
-        android:typeface="monospace" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher"
+                android:id="@+id/imageView"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcomeid"
+                android:id="@+id/welcometext"
+                android:layout_marginTop="5dp"
+                android:typeface="monospace"
+                android:layout_below="@+id/imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/loginid"
-        android:id="@+id/loginbutton"
-        android:layout_below="@+id/passwordid"
-        android:layout_centerHorizontal="true"
-        android:clickable="true"
-        android:typeface="serif" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/usernam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#066c1c"
+                android:layout_below="@+id/welcometext"
+                >
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/usernameid"
+                    android:layout_below="@+id/welcometext"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:hint="Username"
+                    android:typeface="monospace" />
+            </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/notamemberid"
-        android:id="@+id/notamemberview"
-        android:layout_below="@+id/loginbutton"
-        android:layout_centerHorizontal="true"
-        android:typeface="monospace" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/signupid"
-        android:id="@+id/signupbutton"
-        android:layout_below="@+id/notamemberview"
-        android:layout_centerHorizontal="true"
-        android:clickable="true"
-        android:typeface="serif" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/passwordl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#066c16"
+                android:layout_below="@+id/usernam"
+                >
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/passwordid"
+                    android:layout_below="@+id/usernameid"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:hint="Password"
+                    android:typeface="monospace" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/loginid"
+                android:id="@+id/loginbutton"
+                android:layout_below="@+id/passwordl"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:typeface="serif" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/notamemberid"
+                android:id="@+id/notamemberview"
+                android:layout_below="@+id/loginbutton"
+                android:layout_centerHorizontal="true"
+                android:typeface="monospace" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/signupid"
+                android:id="@+id/signupbutton"
+                android:layout_below="@+id/notamemberview"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:typeface="serif" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

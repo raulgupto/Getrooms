@@ -18,19 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".signup" />
-        <activity android:name=".Home" />
         <activity
-            android:name=".Home2"
-            android:label="@string/title_activity_home2"
+            android:name=".Home"
+            android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".searchrooms"
-            android:label="@string/title_activity_searchrooms"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".postpg"
-            android:label="@string/title_activity_postpg"
-            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".display_listview"></activity>
     </application>
 
 </manifest>

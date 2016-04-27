@@ -4,15 +4,16 @@ import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -23,10 +24,9 @@ import org.json.JSONObject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class signup extends AppCompatActivity implements View.OnClickListener{
+public class signup extends AppCompatActivity {
 
-
-
+    TextInputLayout emaillayout, datelayout,namelayout,usernamelayout,passwordlayout,contactnumberlayout;
     EditText passwordid,nameid,emailid,contactnumberid,usernameid;
     EditText txtDate;
     Spinner genderspinnerid;
@@ -44,6 +44,13 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         nameid=(EditText)findViewById(R.id.nameid);
         usernameid=(EditText)findViewById(R.id.usernameid);
         //ageid=(EditText)findViewById(R.id.ageid);
+
+        emaillayout=(TextInputLayout)findViewById(R.id.emaillayout);
+        namelayout=(TextInputLayout)findViewById(R.id.namelayout);
+        usernamelayout=(TextInputLayout)findViewById(R.id.usernamelayout);
+        datelayout=(TextInputLayout)findViewById(R.id.datelayout);
+        passwordlayout=(TextInputLayout)findViewById(R.id.passwordlayout);
+       contactnumberlayout =(TextInputLayout)findViewById(R.id.contactnumberlayout);
 
         genderspinnerid=(Spinner)findViewById(R.id.genderspinnerid);
         gender= ArrayAdapter.createFromResource(this, R.array.genderarray, android.R.layout.simple_spinner_item);
@@ -108,22 +115,59 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                 String category = categoryspinnerid.getSelectedItem().toString();
                 String dateofbirth = txtDate.getText().toString();
 
-                if (name.equals("")||password.equals("")||gender.equals("")||dateofbirth.equals("")||username.equals("")||email.equals("")) {
 
+
+                if (name.equals("")) {
+                    namelayout.setError(getString(R.string.emptyfield));
+                    requestFocus(nameid);
                     Toast.makeText(getApplicationContext(), "field cannot be empty", Toast.LENGTH_SHORT).show();
 
                 }
+                else if(username.equals("")){
+                    usernamelayout.setError(getString(R.string.emptyfield));
+                    requestFocus(usernameid);
+                    Toast.makeText(getApplicationContext(), "field cannot be empty", Toast.LENGTH_SHORT).show();
+                }
+                else if(email.equals("")||!isEmailValid(email)){
+                    emaillayout.setError(getString(R.string.erroremail));
+                    requestFocus(emailid);
+//                    Toast.makeText(getApplicationContext(), "field cannot be empty", Toast.LENGTH_SHORT).show();
+
+                }
+                else if (password.equals("")||(!isPasswordValid(password))){
+                    passwordlayout.setError(getString(R.string.errorpassword));
+
+                    requestFocus(passwordid);
+//                    Toast.makeText(getApplicationContext(), "field cannot be empty", Toast.LENGTH_SHORT).show();
+                }
+                else if (contactnumber.equals("")){
+
+                   contactnumberlayout.setError(getString(R.string.emptyfield));
+                    requestFocus(nameid);
+                }
+
+
+                else  if(dateofbirth.equals("")){
+                    datelayout.setError(getString(R.string.emptyfield));
+
+                    requestFocus(txtDate);
+//                    Toast.makeText(getApplicationContext(), "field cannot be empty", Toast.LENGTH_SHORT).show();
+                }
+
                 else if(gender.equals("SELECT GENDER"))
                 {
                     Toast.makeText(getApplicationContext(), "Select gender", Toast.LENGTH_SHORT).show();
                 }
-                else if(!isEmailValid(email)){
-
-                    Toast.makeText(getApplicationContext(), "Enter Valid email ", Toast.LENGTH_SHORT).show();
-                }
-                else if (!isPasswordValid(password)){
-                    Toast.makeText(getApplicationContext(), "Password format 8char-long-A-a-@!$ ", Toast.LENGTH_SHORT).show();
-                }
+//                else if(){
+////                    emaillayout.setError(getString(R.string.email));
+//                    requestFocus(emailid);
+//                    Toast.makeText(getApplicationContext(), "Enter Valid email ", Toast.LENGTH_SHORT).show();
+//                }
+//                else if ()){
+////                    passwordlayout.setError(getString(R.string.errorpassword));
+////                    requestFocus(passwordid);
+//                    Toast.makeText(getApplicationContext(), "Password format 8char-long-A-a-@..$", Toast.LENGTH_SHORT).show();
+//                }
                 else {
 
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -135,6 +179,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
                                 boolean success = jsonResponse.getBoolean("success");
                                 if (success) {
                                     Intent intent = new Intent(signup.this, MainActivity.class);
+                                    Toast.makeText(getApplicationContext(), "SignUP sucessful! Now login", Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(signup.this);
@@ -181,11 +226,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
     }
 
 
-    @Override
-    public void onClick(View v) {
-
-
-    }
 
     public boolean isEmailValid(String email)
     {
@@ -208,4 +248,10 @@ public class signup extends AppCompatActivity implements View.OnClickListener{
         final Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
 }

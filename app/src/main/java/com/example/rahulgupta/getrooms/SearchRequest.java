@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by Rahul Gupta on 18-04-2016.
  */
 public class SearchRequest extends StringRequest {
-    private static final String SEARCH_REQUEST_URL = "http://192.168.43.196/search.php";
+    private static final String SEARCH_REQUEST_URL = "http://192.168.43.196/search1.php";
     private Map<String, String> params;
 
     public SearchRequest(int price, String shared,String location,String laundry,String mess, Response.Listener<String> Listener) {

@@ -13,8 +13,11 @@
     <string name="setdate">Set Date</string>
     <string name="submit">Submit</string>
     <string name="password">Password</string>
+    <string name="errorpassword">Password format 8char-long-A-a-@..$</string>
+    <string name="erroremail">Check your email</string>
     <string name="Username">Username</string>
     <string name="Age">Age</string>
+    <string name="emptyfield">Empty Field</string>
     <string name="welcome">Welcome to Home</string>
     <string name="location">Location</string>
     <string name="room_type">Room Type</string>
@@ -58,7 +61,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_searchrooms">searchrooms</string>
-    <string name="title_activity_postpg">postpg</string>
+    <string name="title_activity_display_listview">Result</string>
+    <string name="title_activity_home">Home</string>
 
 
 </resources>
